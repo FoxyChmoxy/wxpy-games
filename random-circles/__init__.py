@@ -41,7 +41,7 @@ class MyPanel(wx.Panel):
             yDir= randint(-5, 5)
             clr = wx.Colour(randint(1, 250), randint(1, 250), randint(1, 250))
 
-            newCircle = ball(wx.PaintDC(self), x, y, rad, xDir, yDir, clr)
+            newCircle = Ball(wx.PaintDC(self), x, y, rad, xDir, yDir, clr)
 
             self.d.append(newCircle)
             self.flag = False
@@ -50,17 +50,6 @@ class MyPanel(wx.Panel):
             for b in self.d:
                 dc.SetBrush(wx.Brush(b.clr))
                 dc.DrawCircle(b.x, b.y, b.rad)
-
-class ball:
-    def __init__(self, obj, x, y, rad, xDir, yDir, clr):
-        self.obj = obj
-        self.x = x
-        self.y = y
-        self.rad = rad
-        self.xDir = xDir
-        self.yDir = yDir
-        self.clr = clr
-
 
 class MyFrame(wx.Frame):
     def __init__(self, parent, title=""):
